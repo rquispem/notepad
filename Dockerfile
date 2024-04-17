@@ -1,8 +1,10 @@
 # Set the base image to java8
-FROM openjdk:8-alpine
+#FROM openjdk:8-alpine
+FROM eclipse-temurin:17-jdk-alpine
+
 
 # File Author / Maintainer
-MAINTAINER Jorge Acetozi
+MAINTAINER Ruben Quispe
 
 # Define default environment variables
 ENV NOTEPAD_HOME=/opt/notepad

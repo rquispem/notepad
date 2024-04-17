@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="layout/default">
+	layout:decorate="~{layout/default}">
 <head>
+<!--	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}">-->
 </head>
 <body>
 	<div class="container" layout:fragment="content">
@@ -33,12 +34,12 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
 						<h4 class="modal-title" id="newNoteModalLabel"
 							th:text="#{note.newNote}">New Note</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+								aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
 					</div>
 					<div class="modal-body">
 						<form>
@@ -55,7 +56,7 @@
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal"
+						<button type="button" class="btn btn-default" data-bs-dismiss="modal"
 							th:text="#{note.close}">Close</button>
 						<button id="btnCreateNewNote" type="button"
 							class="btn btn-primary" th:text="#{note.create}">Create</button>
@@ -64,14 +65,22 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" th:src="@{/webjars/jquery/3.6.4/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/noty/2.2.4/jquery.noty.packaged.min.js}"></script>
 
 	<script layout:fragment="script">
 		$(document).ready(function() {
 
+			console.log("hola rquispe");
 			var newNoteModal = $("#newNoteModal");
+			console.log(newNoteModal);
 			var btnCreateNewNote = $("#btnCreateNewNote");
+			console.log(btnCreateNewNote);
 			var txtNewNoteTitle = $("#newNoteTitle");
+			console.log(txtNewNoteTitle);
 			var txtNewNoteContent = $("#newNoteContent");
+			console.log(txtNewNoteContent);
 
 			function createNewNote() {
 				var newNote = {
@@ -117,6 +126,5 @@
 			btnCreateNewNote.on("click", createNewNote);
 		})
 	</script>
-
 </body>
 </html>

@@ -3,7 +3,9 @@ spring.profiles.active: dev
 ---
 
 spring:
-  profiles: dev
+  config:
+    activate:
+      on-profile: dev
   datasource:
     url: jdbc:mysql://localhost:3306/notepad
     username: root
@@ -17,8 +19,9 @@ spring:
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
+        dialect: org.hibernate.dialect.MySQLDialect
   thymeleaf:
+    mode: HTML
     cache: false
   messages:
     cache-seconds: 0
@@ -31,7 +34,9 @@ endpoints.sensitive: false
 test_mysql_host: ${ENV_TEST_MYSQL_HOST:localhost}
 
 spring:
-  profiles: test
+  config:
+    activate:
+      on-profile: test
   datasource:
     url: jdbc:mysql://${test_mysql_host}:3306/notepad
     username: root
@@ -45,7 +50,7 @@ spring:
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
+        dialect: org.hibernate.dialect.MySQLDialect
 
 flyway.enabled: true
 endpoints.sensitive: false
@@ -53,7 +58,9 @@ endpoints.sensitive: false
 ---
 
 spring:
-  profiles: testing
+  config:
+    activate:
+      on-profile: testing
   datasource:
     url: ${testing_datasource_url}
     username: ${testing_datasource_username}
@@ -67,7 +74,7 @@ spring:
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
+        dialect: org.hibernate.dialect.MySQLDialect
 
 flyway.enabled: true
 endpoints.sensitive: false
@@ -76,7 +83,9 @@ logging.config: /etc/notepad/logback-spring.xml
 ---
 
 spring:
-  profiles: staging
+  config:
+    activate:
+      on-profile: staging
   datasource:
     url: ${staging_datasource_url}
     username: ${staging_datasource_username}
@@ -90,7 +99,7 @@ spring:
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
+        dialect: org.hibernate.dialect.MySQLDialect
 
 flyway.enabled: true
 endpoints.sensitive: false
@@ -99,7 +108,9 @@ logging.config: /etc/notepad/logback-spring.xml
 ---
 
 spring:
-  profiles: production
+  config:
+    activate:
+      on-profile: production
   datasource:
     url: ${production_datasource_url}
     username: ${production_datasource_username}
@@ -113,7 +124,7 @@ spring:
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
+        dialect: org.hibernate.dialect.MySQLDialect
 
 flyway.enabled: true
 endpoints.sensitive: false

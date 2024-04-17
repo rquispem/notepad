@@ -1,23 +1,23 @@
 package com.jorgeacetozi.notepad.acceptanceTests.note;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
+
 
 import java.net.URI;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.jorgeacetozi.notepad.acceptanceTests.configuration.AcceptanceTestsConfiguration;
 import com.jorgeacetozi.notepad.acceptanceTests.note.pageObject.NewNotePage;
 import com.jorgeacetozi.notepad.note.domain.model.Note;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest
 @ContextConfiguration(classes = { AcceptanceTestsConfiguration.class })
 public class CreateNoteTest {
 
@@ -31,7 +31,7 @@ public class CreateNoteTest {
 	private final String newNoteSuccessMessage = "Your note was successfully saved!";
 	private final String newNoteFailMessage = "Title and Content cannot be empty";
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		driver.get(notepadBaseUri.toString());
 		newNotePage = new NewNotePage(driver);
