@@ -8,7 +8,7 @@ spring:
       on-profile: dev
   datasource:
 #    url: jdbc:mysql://localhost:3306/notepad
-    url: jdbc:sqlserver://notepadrjqm.database.windows.net:1433;database=notepad;
+    url: jdbc:sqlserver://notepadserverapp.database.windows.net:1433;database=notepad;
     username: rquispem
     password: Harl250189!
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver

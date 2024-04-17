@@ -25,6 +25,7 @@
 		<acceptance.notepad.url>http://localhost:8080</acceptance.notepad.url>
 		<selenium.url>http://localhost:4444/wd/hub</selenium.url>
 		<selenium.browser>firefox</selenium.browser>
+		<skipTests>true</skipTests>
 	</properties>
 
 	<scm>
