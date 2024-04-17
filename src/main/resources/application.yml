@@ -7,9 +7,11 @@ spring:
     activate:
       on-profile: dev
   datasource:
-    url: jdbc:mysql://localhost:3306/notepad
-    username: root
-    password: root
+#    url: jdbc:mysql://localhost:3306/notepad
+    url: jdbc:sqlserver://notepadrjqm.database.windows.net:1433;database=notepad;
+    username: rquispem
+    password: Harl250189!
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     testWhileIdle: true
     validationQuery: SELECT 1
   jpa:
@@ -19,7 +21,8 @@ spring:
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+#        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.SQLServerDialect
   thymeleaf:
     mode: HTML
     cache: false
@@ -99,7 +102,8 @@ spring:
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+#        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.SQLServerDialect
 
 flyway.enabled: true
 endpoints.sensitive: false
@@ -124,7 +128,8 @@ spring:
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+#        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.SQLServerDialect
 
 flyway.enabled: true
 endpoints.sensitive: false
